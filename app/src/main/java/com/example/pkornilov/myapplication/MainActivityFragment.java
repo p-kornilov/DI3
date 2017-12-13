@@ -1,5 +1,6 @@
 package com.example.pkornilov.myapplication;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -25,14 +28,17 @@ public class MainActivityFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
 
         TextView tv = v.findViewById(R.id.text);
+      //  AndroidInjection.inject(this);
 /*        AppComponent component = DaggerAppComponent.builder()
                 .appModule(new AppModule())
                 .build();*/
      //   AppComponent component = DaggerAppComponent.create();
      //   component.inject(this);
 
-        ((MainApplication) getActivity().getApplicationContext()).getAppComponent().plusAPIComponent(new APIModule()).inject(this);
-        tv.setText(api.getText());
+    //    DaggerAPIComponent.builder().aPIModule(new APIModule()).build().inject(this);
+//        ((MainApplication) getActivity().getApplicationContext()).getAppComponent().plusAPIComponent(new APIModule()).inject(this);
+   //     tv.setText(api.getText());
         return v;
     }
+
 }
