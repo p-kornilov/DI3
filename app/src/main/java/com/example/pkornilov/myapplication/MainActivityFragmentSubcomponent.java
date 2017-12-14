@@ -14,5 +14,5 @@ public interface MainActivityFragmentSubcomponent extends AndroidInjector<MainAc
     class FragmentModule {}
 
     @Subcomponent.Builder
-    abstract class Builder extends AndroidInjector.Builder<MainActivityFragment> {}
+    public abstract class Builder extends AndroidInjector.Builder<MainActivityFragment> {}
 }

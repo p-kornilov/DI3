@@ -13,7 +13,7 @@ import dagger.Provides;
 public class APIModule {
 
     @Provides
-    @FragmentScope
+    //@FragmentScope
     public TestAPI provideAPI() {
         return new TestAPI();
     }

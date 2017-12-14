@@ -11,6 +11,7 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+import dagger.android.support.AndroidSupportInjection;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -28,7 +29,8 @@ public class MainActivityFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
 
         TextView tv = v.findViewById(R.id.text);
-      //  AndroidInjection.inject(this);
+        //AndroidInjection.inject(this);
+        AndroidSupportInjection.inject(this);
 /*        AppComponent component = DaggerAppComponent.builder()
                 .appModule(new AppModule())
                 .build();*/
@@ -37,7 +39,7 @@ public class MainActivityFragment extends Fragment {
 
     //    DaggerAPIComponent.builder().aPIModule(new APIModule()).build().inject(this);
 //        ((MainApplication) getActivity().getApplicationContext()).getAppComponent().plusAPIComponent(new APIModule()).inject(this);
-   //     tv.setText(api.getText());
+        tv.setText(api.getText());
         return v;
     }
 
