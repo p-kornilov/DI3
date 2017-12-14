@@ -1,5 +1,6 @@
 package com.example.pkornilov.myapplication;
 
+import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
@@ -7,22 +8,25 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
 /**
  * Created by p.kornilov on 13.12.2017.
  */
 
-public class MainApplication extends Application implements HasSupportFragmentInjector {
+public class MainApplication extends Application implements HasActivityInjector {
     private AppComponent appComponent;
     @Inject
-    DispatchingAndroidInjector<Fragment> fragmentInjector;
+    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
-        DaggerAppComponent.create().inject(this);
+        DaggerAppComponent.builder().application(this).build();
+       // DaggerAppComponent.builder().build().inject(this);
+
 
       /*  appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this,"eee"))
@@ -35,7 +39,7 @@ public class MainApplication extends Application implements HasSupportFragmentIn
     }
 
     @Override
-    public AndroidInjector<Fragment> supportFragmentInjector(){
-        return fragmentInjector;
+    public DispatchingAndroidInjector<Activity> activityInjector(){
+        return dispatchingAndroidInjector;
     }
 }
