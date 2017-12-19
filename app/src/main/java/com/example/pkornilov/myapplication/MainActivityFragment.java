@@ -47,6 +47,7 @@ public class MainActivityFragment extends Fragment {
 
     //    DaggerAPIComponent.builder().aPIModule(new APIModule()).build().inject(this);
 //        ((MainApplication) getActivity().getApplicationContext()).getAppComponent().plusAPIComponent(new APIModule()).inject(this);
+        AndroidSupportInjection.inject(this);
         FragmentPresenter model = ViewModelProviders.of(getActivity(),viewModelFactory).get(FragmentPresenter.class);
         model.getData().observe(this, new Observer<String>() {
             @Override

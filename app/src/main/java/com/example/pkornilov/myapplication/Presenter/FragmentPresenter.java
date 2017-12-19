@@ -17,7 +17,7 @@ public class FragmentPresenter extends ViewModel {
 
     @Inject
     public FragmentPresenter(TestAPI api){
-        super();
+     //   super();
         this.api = api;
     }
 
