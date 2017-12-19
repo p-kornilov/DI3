@@ -13,17 +13,20 @@ import javax.inject.Inject;
 
 public class FragmentPresenter extends ViewModel {
     private final MutableLiveData<String> data = new MutableLiveData<>();
-    TestAPI api;
+/*    @Inject
+    TestAPI api;*/
+    private String text;
 
     @Inject
     public FragmentPresenter(TestAPI api){
      //   super();
-        this.api = api;
+       // this.api = api;
+        text = api.getText();
     }
 
     public MutableLiveData<String> getData(){
         //data.setValue("Hello!");
-        data.setValue(api.getText());
+        data.setValue(text);
         return data;
     }
 }

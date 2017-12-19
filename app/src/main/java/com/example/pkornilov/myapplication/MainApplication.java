@@ -15,10 +15,10 @@ import dagger.android.support.HasSupportFragmentInjector;
  * Created by p.kornilov on 13.12.2017.
  */
 
-public class MainApplication extends Application implements HasActivityInjector {
+public class MainApplication extends Application implements HasSupportFragmentInjector {
     private AppComponent appComponent;
     @Inject
-    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
+    DispatchingAndroidInjector<Fragment> fragmentInjector;
 
 
     @Override
@@ -40,7 +40,7 @@ public class MainApplication extends Application implements HasActivityInjector 
     }
 
     @Override
-    public DispatchingAndroidInjector<Activity> activityInjector(){
-        return dispatchingAndroidInjector;
+    public AndroidInjector<Fragment> supportFragmentInjector(){
+        return fragmentInjector;
     }
 }
