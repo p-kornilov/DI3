@@ -17,12 +17,12 @@ import dagger.multibindings.IntoMap;
  * Created by p.kornilov on 13.12.2017.
  */
 
-@Module//(subcomponents = {MainActivityFragmentSubcomponent.class})
+@Module(subcomponents = {MainActivityFragmentSubcomponent.class})
 public abstract class BindingModule {
-/*    @Binds
+    @Binds
     @IntoMap
     @FragmentKey(MainActivityFragment.class)
-    abstract AndroidInjector.Factory<? extends Fragment> bindMainActivityFragmentInjectorFactory(MainActivityFragmentSubcomponent.Builder builder);*/
+    abstract AndroidInjector.Factory<? extends Fragment> bindMainActivityFragmentInjectorFactory(MainActivityFragmentSubcomponent.Builder builder);
 
     @Binds
     @IntoMap
